@@ -1,13 +1,15 @@
 import DataTable from "@/components/common/Table";
+import { prisma } from "@/lib/prisma";
 import { TableHeader } from "@/types/data-table";
+import { useEffect } from "react";
 
-const Store = () => {
+const Store = async () => {
 
   const headers: TableHeader[] = [
     { label: "NAME", key: "name" },
-    { label: "LOCATION", key: "location.name" }
+    // { label: "LOCATION", key: "location.name" }
   ]
-  const data: any[] = []
+  const stores = await prisma.store.findMany()
 
   return (
 
@@ -35,7 +37,7 @@ const Store = () => {
           defaultValue="2023-11-27"
         />
       </div>
-      <DataTable data={data} headers={headers} />
+      <DataTable data={stores} headers={headers} />
     </main>
   );
 };
