@@ -1,4 +1,3 @@
-import { NavItemWithOptionalChildren } from "@/types";
 import Link from "next/link";
 
 const Sidebar = () => {

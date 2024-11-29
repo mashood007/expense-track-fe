@@ -15,14 +15,14 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
     case 'PUT': {
       // Update a store
-      const { name, email } = req.body;
+      const { name } = req.body;
       try {
         const updatedstore = await prisma.store.update({
           where: { id: Number(id) },
-          data: { name, email },
+          data: { name },
         });
         return res.status(200).json(updatedstore);
-      } catch (error) {
+      } catch {
         return res.status(400).json({ error: 'Unable to update store' });
       }
     }
@@ -33,7 +33,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
           where: { id: Number(id) },
         });
         return res.status(204).end();
-      } catch (error) {
+      } catch {
         return res.status(400).json({ error: 'Unable to delete store' });
       }
     }

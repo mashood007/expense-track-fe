@@ -1,7 +1,6 @@
 import DataTable from "@/components/common/Table";
 import { prisma } from "@/lib/prisma";
 import { TableHeader } from "@/types/data-table";
-import { useEffect } from "react";
 
 const Store = async () => {
 

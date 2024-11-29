@@ -10,13 +10,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }
     case 'POST': {
       // Create a new store
-      const { name, email } = req.body;
+      const { name } = req.body;
       try {
         const newStore = await prisma.store.create({
           data: { name },
         });
         return res.status(201).json(newStore);
-      } catch (error) {
+      } catch {
         return res.status(400).json({ error: 'Unable to create store' });
       }
     }

@@ -9,7 +9,7 @@ const DataTable = ({ data, headers }: TableProps) => {
           {
             headers.map((header) => {
               return (
-                <th className="px-4 py-2">{header.label}</th>
+                <th key={header.key} className="px-4 py-2">{header.label}</th>
               )
             })
           }

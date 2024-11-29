@@ -7,9 +7,9 @@ interface TopBarProps {
 
 const TopBar: React.FC<TopBarProps> = ({ appName, userName }) => {
 
-  const onLogout = () => {
+  // const onLogout = () => {
 
-  }
+  // }
 
   return (
     <div className="flex justify-between items-center bg-gray-100 px-6 py-4 border-b">
