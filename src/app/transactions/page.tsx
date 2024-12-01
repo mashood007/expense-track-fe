@@ -20,7 +20,7 @@ const transactions: Transaction[] = [
 
 export default function Transactions() {
 
-  const [open, setOpen] = useState<Boolean>(false);
+  const [open, setOpen] = useState<boolean>(false);
 
   // const toggleDialog = () => {
   //   setOpen(!open);

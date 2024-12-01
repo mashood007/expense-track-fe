@@ -5,7 +5,7 @@ import React from "react";
 // import "react-datepicker/dist/react-datepicker.css";
 
 interface Props {
-  open: Boolean,
+  open: boolean,
   setOpen: Function
 }
 
