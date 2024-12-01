@@ -14,7 +14,33 @@ datasource db {
 }
 
 model Store {
-  id        Int      @id @default(autoincrement())
-  name      String
-  createdAt DateTime @default(now())
+  id           Int           @id @default(autoincrement())
+  name         String
+  createdAt    DateTime      @default(now())
+  transactions Transaction[]
+}
+
+model Category {
+  id           Int           @id @default(autoincrement())
+  name         String        @unique()
+  createdAt    DateTime      @default(now())
+  transactions Transaction[]
+}
+
+model Transaction {
+  id              Int      @id @default(autoincrement())
+  name            String
+  amount          Int      @default(0)
+  flow            Flow     @default(IN)
+  categoryId      Int
+  category        Category @relation(fields: [categoryId], references: [id])
+  storeID         Int
+  store           Store    @relation(fields: [storeID], references: [id])
+  transactionDate DateTime @default(now())
+  createdAt       DateTime @default(now())
+}
+
+enum Flow {
+  IN
+  OUT
 }

@@ -1,3 +1,7 @@
+"use client"; // Required for client-side interactivity
+
+import AddTransaction from "@/components/transactions/add-transaction";
+import { useState } from "react";
 
 interface Transaction {
   name: string;
@@ -15,14 +19,22 @@ const transactions: Transaction[] = [
 ];
 
 export default function Transactions() {
+
+  const [open, setOpen] = useState<Boolean>(false);
+
+  // const toggleDialog = () => {
+  //   setOpen(!open);
+  // };
+
   return (
     <main className="flex-1 p-6">
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-semibold">Transactions (4)</h1>
-        <button className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
+        <button onClick={() => { setOpen(true) }} className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">
           + Add transactions
         </button>
       </div>
+      <AddTransaction setOpen={setOpen} open={open} />
 
       <div className="mt-4 flex items-center gap-2">
         <select className="border px-4 py-2 rounded">
