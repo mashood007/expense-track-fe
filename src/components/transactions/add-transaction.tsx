@@ -6,7 +6,7 @@ import React from "react";
 
 interface Props {
   open: boolean,
-  setOpen: Function
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 const AddTransaction = ({ open, setOpen }: Props) => {
